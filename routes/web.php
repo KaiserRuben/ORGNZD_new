@@ -16,4 +16,16 @@ Route::get('/', 'ProjectController@index');
 
 Route::get('/project/new/', 'ProjectController@new');
 Route::post('/project/save/', 'ProjectController@save');
+
 Route::get('/project/{id}/', 'ProjectController@project');
+Route::get('/project/{id}/edit', 'ProjectController@edit');
+Route::get('/project/{id}/delete', 'ProjectController@delete');
+Route::post('/project/{id}/update', 'ProjectController@update');
+
+Route::get('/list/new/{projectid}', 'ListsController@new');
+Route::post('/list/save/{projectid}', 'ListsController@save');
+
+Route::get('/list/{id}/', 'ListsController@list');
+Route::get('/list/{id}/edit', 'ListsController@edit');
+Route::get('/list/{id}/delete', 'ListsController@delete');
+Route::post('/list/{id}/update', 'ListsController@update');

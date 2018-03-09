@@ -14,15 +14,6 @@ use Illuminate\Support\Facades\Input;
 class ProjectController extends Controller
 {
     
-    public function RandomString($length = 150){
-        $keyspace = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
-        $str = '';
-        $max = mb_strlen($keyspace, '8bit') - 1;
-        for ($i = 0; $i < $length; ++$i) {
-            $str .= $keyspace[rand(0, $max)];
-        }
-        return $str;
-    }
 
     // Show all projects
 
@@ -43,8 +34,11 @@ class ProjectController extends Controller
 
         $project = DB::table('projects')->where('id', $id)->first();
 
+        $lists = DB::table('lists')->where('projectid', $id)->get();
+
+
         
-        return view('projects.project', ['project' => $project]);
+        return view('projects.project', ['project' => $project, 'lists' => $lists]);
     }
 
 
@@ -84,10 +78,46 @@ class ProjectController extends Controller
     }
 
 
+    // Edit a Project
+
+    public function edit($id){
+
+        $project = DB::table('projects')->where('id', $id)->first();
+
+        
+        return view('projects.edit', ['project' => $project]);
+    }
+
+
     // Update project
 
-    public function update()
+    public function update($id, Request $request)
     {
+        $name = $request->input('name');
+        $type = $request->input('type');
+        $description = $request->input('description');
+        $duedate = $request->input('duedate');
+        $log = date('Y-m-d H:i:s');
 
+        DB::table('projects')->where('id', $id)->update(
+        [
+            'name' => $name, 
+            'type' => $type,
+            'description' => $description,
+            'duedate' => $duedate,
+            'log' => $log,
+        ]
+        );
+
+
+        return redirect('/project/'.$id.'/');
     } 
+
+
+    // Delete a Project
+
+    public function delete($id){
+        DB::table('projects')->where('id', $id)->delete();
+        return redirect('/');
+    }
 }
