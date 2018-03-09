@@ -13,3 +13,7 @@
 
 
 Route::get('/', 'ProjectController@index');
+
+Route::get('/project/new/', 'ProjectController@new');
+Route::post('/project/save/', 'ProjectController@save');
+Route::get('/project/{id}/', 'ProjectController@project');
