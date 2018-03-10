@@ -73,6 +73,8 @@ class ProjectController extends Controller
 
     public function save(Request $request){
 
+        $userid = Auth::id();
+
         $name = $request->input('name');
         $type = $request->input('type');
         $description = $request->input('description');
@@ -82,6 +84,7 @@ class ProjectController extends Controller
 
         $id = DB::table('projects')->insertGetId(
         [
+            'userid' => $userid,
             'name' => $name, 
             'type' => $type,
             'description' => $description,
