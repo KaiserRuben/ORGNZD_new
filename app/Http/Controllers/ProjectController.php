@@ -24,7 +24,7 @@ class ProjectController extends Controller
         $countallprojects = DB::table('projects')->count();
         
 
-        return view('projects.index', ['projects' => $projects, 'count' => $countallprojects ]);
+        return view('projects.start', ['projects' => $projects, 'count' => $countallprojects ]);
     }
 
 
