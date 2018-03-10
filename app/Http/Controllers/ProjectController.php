@@ -19,7 +19,7 @@ class ProjectController extends Controller
 
     public function index(){
         
-        $projects = DB::table('projects')->get();
+        $projects = DB::table('projects')->orderBy('duedate', 'asc')->get();
 
         $countallprojects = DB::table('projects')->count();
         
