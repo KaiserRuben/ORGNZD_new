@@ -19,4 +19,23 @@ class UserController extends Controller
 		return redirect('/');
 	}
 
+	public function settings(){
+
+		$user = DB::table('users')->where('id', Auth::id())->first();
+
+		return view('users.settings', ['user' => $user]);
+	}
+
+	public function update(){
+
+	}
+
+	public function warning(){
+
+	}
+
+	public function delete(){
+
+	}
+
 }
