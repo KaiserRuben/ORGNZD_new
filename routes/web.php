@@ -33,5 +33,12 @@ Route::get('/list/{id}/delete', 'ListsController@delete');
 Route::post('/list/{id}/update', 'ListsController@update');
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/logout/', 'UserController@logout');
+
+Route::get('/settings/', 'UserController@settings');
+Route::post('/settings/save', 'UserController@save');
+
+Route::get('/user/warning/', 'UserController@warning');
+Route::get('/user/delete/', 'UserController@delete');
+
+
