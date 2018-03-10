@@ -68,6 +68,15 @@ a {
     letter-spacing: 0.5px;
     margin-top: 3px; }
 
+#info-card{
+  background: transparent;
+  color: #404040; 
+}
+
+#info-card h5{
+  color: #404040;
+}
+
 #yellow-card {
   background: linear-gradient(45deg, #FA8282, #FCE58F); }
 
@@ -102,4 +111,28 @@ a {
   background: #FCB8B8;
   border-radius: 50%;
   box-shadow: 0px 11px 30px rgba(0, 0, 0, 0.1); }
+
+.infolink{
+  text-decoration: none;
+  color:grey;
+  border:2px solid grey;
+  border-radius: 3px;
+  padding:2px;
+  margin:2px;
+}
+
+.infolink:hover{
+  color:white;
+  background-color: grey;
+}
+
+.list-headline {
+  font-family: "Roboto";
+  font-size: 30px;
+  color: #404040;
+  letter-spacing: 1px;
+  margin-bottom: 10px; }
+
+#location-headline {
+  padding-left: 28px; }
 
