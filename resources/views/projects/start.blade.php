@@ -8,7 +8,7 @@
   <!-- ROBOTO -->
   <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,900" rel="stylesheet">
   <!-- CSS -->
-  <link rel="stylesheet" href="/css/start.css">
+  <link rel="stylesheet" href="{{ URL::asset('css/start.css') }}">
 </head>
 <body>
   <div class="header">
@@ -21,8 +21,8 @@
   </div>
 
   <div class="project-list">
-    
-    @php
+
+  @php
 
     $n = 1;
 
@@ -54,19 +54,13 @@
 
     @endphp
 
-    <div class="card" 
-      
-      @php
-
-      echo $designid;
-
-      @endphp
-
-    >
-      <h1>{{ $project->name }}</h1>
-      <h5 id="task-number">{{ $project->description }}</h5>
-      <h5 id="remaining-days">{{ $project->duedate }}</h5>
-    </div>
+    <a href="/project/{{ $project->id }}">
+      <div class="card" @php echo $designid; @endphp>
+        <h1>{{ $project->name }}</h1>
+        <h5 id="task-number">{{ $project->description }}</h5>
+        <h5 id="remaining-days">{{ $project->duedate }}</h5>
+      </div>
+    </a>
 
     @php
 
@@ -101,6 +95,7 @@
     </div>
 
     <div class="add-btn-wrapper">
+      <a href="/project/new/">
       <div class="add-btn">
         <svg width="25px" height="24px" viewBox="0 0 25 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
             <!-- Generator: Sketch 46.2 (44496) - http://www.bohemiancoding.com/sketch -->
@@ -116,6 +111,7 @@
             </g>
         </svg>
       </div>
+      </a>
     </div>
   </div>
 </body>
