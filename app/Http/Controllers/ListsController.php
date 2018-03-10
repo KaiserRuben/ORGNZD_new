@@ -8,11 +8,16 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\ResultSet;
 use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Auth;
 
 
 
 class ListsController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
 
     // Show single Project
 
@@ -24,6 +29,8 @@ class ListsController extends Controller
 
         $project = DB::table('projects')->where('id', $projectid)->first();
 
+        ProjectController::AllowedForThisProject(Auth::id(), $projectid);
+
 
         
         return view('lists.list', ['project' => $project, 'list' => $list]);
@@ -32,6 +39,8 @@ class ListsController extends Controller
     // Create new list
 
     public function new($projectid){
+
+        ProjectController::AllowedForThisProject(Auth::id(), $projectid);
 
         $project = DB::table('projects')->where('id', $projectid)->first();
 
@@ -42,6 +51,8 @@ class ListsController extends Controller
     // Save new list
 
     public function save($projectid, Request $request){
+
+        ProjectController::AllowedForThisProject(Auth::id(), $projectid);
 
         $projectid = $projectid;
         $name = $request->input('name');
@@ -74,9 +85,13 @@ class ListsController extends Controller
 
     public function edit($id){
 
+
+
         $list = DB::table('lists')->where('id', $id)->first();
 
         $projectid = $list->projectid;
+
+        ProjectController::AllowedForThisProject(Auth::id(), $projectid);
 
         $project = DB::table('projects')->where('id', $projectid)->first();
 
@@ -89,9 +104,11 @@ class ListsController extends Controller
 
     public function update($id, Request $request)
     {
+        $list = DB::table('lists')->where('id', $id)->first();
 
+        $projectid = $list->projectid;
         
-
+        ProjectController::AllowedForThisProject(Auth::id(), $projectid);
 
         $name = $request->input('name');
         $type = $request->input('type');

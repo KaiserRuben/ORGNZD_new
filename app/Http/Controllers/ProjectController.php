@@ -8,18 +8,33 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\ResultSet;
 use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Auth;
 
 
 
 class ProjectController extends Controller
 {
-    
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
+    public function AllowedForThisProject($userid, $projectid){
+        $project = DB::table('projects')->where('id', $projectid)->first();
+
+        if($userid !== $project->userid ){
+            echo 'Kein Zugriff!';
+            exit(1);
+        }
+    }
 
     // Show all projects
 
     public function index(){
+
+        $userid = Auth::id();
         
-        $projects = DB::table('projects')->orderBy('duedate', 'asc')->get();
+        $projects = DB::table('projects')->where('userid', $userid)->orderBy('duedate', 'asc')->get();
 
         $countallprojects = DB::table('projects')->count();
         
@@ -31,6 +46,10 @@ class ProjectController extends Controller
     // Show single Project
 
     public function project($id){
+
+        
+        ProjectController::AllowedForThisProject(Auth::id(), $id);
+
 
         $project = DB::table('projects')->where('id', $id)->first();
 
@@ -82,6 +101,8 @@ class ProjectController extends Controller
 
     public function edit($id){
 
+        ProjectController::AllowedForThisProject(Auth::id(), $id);
+
         $project = DB::table('projects')->where('id', $id)->first();
 
         
@@ -93,6 +114,8 @@ class ProjectController extends Controller
 
     public function update($id, Request $request)
     {
+        ProjectController::AllowedForThisProject(Auth::id(), $id);
+
         $name = $request->input('name');
         $type = $request->input('type');
         $description = $request->input('description');
@@ -117,6 +140,10 @@ class ProjectController extends Controller
     // Delete a Project
 
     public function delete($id){
+
+        ProjectController::AllowedForThisProject(Auth::id(), $id);
+
+        
         DB::table('projects')->where('id', $id)->delete();
         return redirect('/');
     }
