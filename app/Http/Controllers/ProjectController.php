@@ -28,6 +28,24 @@ class ProjectController extends Controller
         }
     }
 
+    // Calculate the difference between two dates
+
+    public static function DateTimeLeft($datetime){
+        
+        $actualdate = date('Y-m-d H:i:s');
+
+        $date1 = date_create($datetime);
+        $date2 = date_create($actualdate);
+
+        //difference between two dates
+        $diff = date_diff($date1,$date2);
+
+        //count days
+        $newdate = 'Noch '.$diff->format("%a").' Tage';
+
+        return $newdate;
+    }
+
     // Show all projects
 
     public function index(){
@@ -36,7 +54,11 @@ class ProjectController extends Controller
         
         $projects = DB::table('projects')->where('userid', $userid)->orderBy('duedate', 'asc')->get();
 
-        $countallprojects = DB::table('projects')->count();
+        $countallprojects = DB::table('projects')->where('userid', $userid)->count();
+
+        foreach ($projects as $project) {
+            $project->duedate = ProjectController::DateTimeLeft($project->duedate);
+        }
         
 
         return view('projects.start', ['projects' => $projects, 'count' => $countallprojects ]);
