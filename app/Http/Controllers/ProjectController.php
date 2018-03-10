@@ -19,7 +19,7 @@ class ProjectController extends Controller
         $this->middleware('auth');
     }
 
-    public function AllowedForThisProject($userid, $projectid){
+    public static function AllowedForThisProject($userid, $projectid){
         $project = DB::table('projects')->where('id', $projectid)->first();
 
         if($userid !== $project->userid ){
