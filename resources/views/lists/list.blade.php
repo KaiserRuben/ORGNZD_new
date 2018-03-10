@@ -16,11 +16,11 @@
       
 
       <!-- PROJECT NAME -->
-      <h1>{{ $project->name }} - {{ $list->name }}</h1>
+      <h1>{{ $project->name }}</h1>
     </div>
 
     <div class="list-wrapper">
-      <h2 class="list-headline">What to buy</h2>
+      <h2 class="list-headline">{{ $list->name }}</h2>
       
       <ul>
         <div class="item">

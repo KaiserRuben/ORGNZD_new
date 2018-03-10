@@ -36,6 +36,9 @@
       <div class="line"></div>
 
       <textarea name="description" placeholder="What's the plan?" id="desc-input" required></textarea>
+      
+      <input type="text" name="location" placeholder="Location" required id="date-btn">
+      
       <div class="footer">
         <select name="type" id="type-btn">
           <option value="Party">Party</option>
@@ -44,6 +47,8 @@
         </select>
 
         <input type="date" maxlength="50" name="duedate" placeholder="Duedate" required id="date-btn">
+
+        
 
         <input type="Submit" name="submit" value="Add" id="add-btn">
       </div>
