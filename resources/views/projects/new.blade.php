@@ -19,7 +19,7 @@
 
       <div class="header">
         <input type="name" maxlength="150" name="name" placeholder="Untitled project" required>
-        <a href="start.php" id="back-btn">
+        <a href="/" id="back-btn">
           <svg width="17px" height="17px" viewBox="0 0 17 17" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
               <defs></defs>
               <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" font-weight="400" font-family="Ionicons" letter-spacing="0.875" font-size="28">
