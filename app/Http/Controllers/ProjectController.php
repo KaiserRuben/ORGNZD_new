@@ -75,11 +75,15 @@ class ProjectController extends Controller
 
         $project = DB::table('projects')->where('id', $id)->first();
 
+        $project->duedate = ProjectController::DateTimeLeft($project->duedate);
+
         $lists = DB::table('lists')->where('projectid', $id)->get();
+
+        $listscount = DB::table('lists')->where('projectid', $id)->count();
 
 
         
-        return view('projects.project', ['project' => $project, 'lists' => $lists]);
+        return view('projects.project', ['project' => $project, 'lists' => $lists, 'listscount' => $listscount]);
     }
 
 
