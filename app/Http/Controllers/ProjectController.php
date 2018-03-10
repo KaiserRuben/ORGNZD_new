@@ -103,7 +103,7 @@ class ProjectController extends Controller
 
         $name = $request->input('name');
         $type = $request->input('type');
-        $description = $request->input('description');
+        $location = $request->input('location');
         $duedate = $request->input('duedate');
         $log = date('Y-m-d H:i:s');
         $created = date('Y-m-d H:i:s');
@@ -113,7 +113,7 @@ class ProjectController extends Controller
             'userid' => $userid,
             'name' => $name, 
             'type' => $type,
-            'description' => $description,
+            'location' => $location,
             'duedate' => $duedate,
             'log' => $log,
             'created' => $created,
@@ -147,7 +147,7 @@ class ProjectController extends Controller
 
         $name = $request->input('name');
         $type = $request->input('type');
-        $description = $request->input('description');
+        $location = $request->input('location');
         $duedate = $request->input('duedate');
         $log = date('Y-m-d H:i:s');
 
@@ -155,7 +155,7 @@ class ProjectController extends Controller
         [
             'name' => $name, 
             'type' => $type,
-            'description' => $description,
+            'location' => $location,
             'duedate' => $duedate,
             'log' => $log,
         ]
