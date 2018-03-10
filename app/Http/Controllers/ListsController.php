@@ -19,6 +19,10 @@ class ListsController extends Controller
         $this->middleware('auth');
     }
 
+    public static function slice($zuZerteilen){
+      $Array = explode(", ", $zuZerteilen);
+      return $Array;
+    }
     // Show single Project
 
     public function list($id){
@@ -32,7 +36,7 @@ class ListsController extends Controller
         ProjectController::AllowedForThisProject(Auth::id(), $projectid);
 
 
-        
+
         return view('lists.list', ['project' => $project, 'list' => $list]);
     }
 
@@ -66,7 +70,7 @@ class ListsController extends Controller
         $id = DB::table('lists')->insertGetId(
         [
             'projectid' => $projectid,
-            'name' => $name, 
+            'name' => $name,
             'type' => $type,
             'description' => $description,
             'value' => $value,
@@ -78,7 +82,7 @@ class ListsController extends Controller
 
 
         return redirect('/list/'.$id.'/');
-        
+
     }
 
     // Edit a List
@@ -95,7 +99,7 @@ class ListsController extends Controller
 
         $project = DB::table('projects')->where('id', $projectid)->first();
 
-        
+
         return view('lists.edit', ['list' => $list, 'project' => $project]);
     }
 
@@ -107,7 +111,7 @@ class ListsController extends Controller
         $list = DB::table('lists')->where('id', $id)->first();
 
         $projectid = $list->projectid;
-        
+
         ProjectController::AllowedForThisProject(Auth::id(), $projectid);
 
         $name = $request->input('name');
@@ -119,7 +123,7 @@ class ListsController extends Controller
 
         DB::table('lists')->where('id', $id)->update(
         [
-            'name' => $name, 
+            'name' => $name,
             'type' => $type,
             'description' => $description,
             'value' => $value,
@@ -130,12 +134,12 @@ class ListsController extends Controller
 
 
         return redirect('/list/'.$id.'/');
-    } 
+    }
 
     // Delete a List
 
     public function delete($id){
-        
+
         $list = DB::table('lists')->where('id', $id)->first();
 
         $projectid = $list->projectid;
@@ -146,6 +150,6 @@ class ListsController extends Controller
         return redirect('/project/'.$project);
     }
 
-    
+
 
 }
