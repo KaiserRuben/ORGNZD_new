@@ -13,10 +13,25 @@
 <body>
   <div class="header">
     <h1>Projects</h1>
+    
     <div class="project-number-wrapper">
       <div class="circle">
         <span>{{ $count }}</span>
       </div>
+    </div>
+
+    <div class="project-number-wrapper">
+      
+      <a href="/settings/">
+
+      <div class="circle darkblue">
+        <span>
+          O
+        </span>
+      </div>
+
+    </a>
+
     </div>
   </div>
 
@@ -79,6 +94,7 @@
   </div>
 
   <div class="footer">
+    
     <div class="settings-icon">
       <svg width="27px" height="27px" viewBox="0 0 27 27" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
           <!-- Generator: Sketch 46.2 (44496) - http://www.bohemiancoding.com/sketch -->
@@ -87,14 +103,17 @@
           <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" font-weight="normal" font-family="material" letter-spacing="0.96875" font-size="31">
               <g id="Project-view" transform="translate(-30.000000, -600.000000)" fill="#D2D2D2">
                   <text id="settings---material">
-                      <tspan x="28" y="624"></tspan>
+                      <tspan x="28" y="624"></tspan>
                   </text>
               </g>
           </g>
       </svg>
     </div>
+    
+
 
     <div class="add-btn-wrapper">
+      
       <a href="/project/new/">
       <div class="add-btn">
         <svg width="25px" height="24px" viewBox="0 0 25 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -112,6 +131,7 @@
         </svg>
       </div>
       </a>
+
     </div>
   </div>
 </body>

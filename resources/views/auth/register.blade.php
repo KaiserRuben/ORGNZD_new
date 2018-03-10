@@ -1,77 +1,98 @@
-@extends('layouts.app')
+<!DOCTYPE html>
 
-@section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Register') }}</div>
+<html>
 
-                <div class="card-body">
-                    <form method="POST" action="{{ route('register') }}">
-                        @csrf
+<head>
+	
+	<link rel="stylesheet" type="text/css" href="{{ URL::asset('css/signup.css') }}">
+	<title>ORGNZD. Sign up</title>
+	<meta charset="utf-8">
 
-                        <div class="form-group row">
-                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
+</head>
 
-                            <div class="col-md-6">
-                                <input id="name" type="text" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" name="name" value="{{ old('name') }}" required autofocus>
+<body>
 
-                                @if ($errors->has('name'))
-                                    <span class="invalid-feedback">
-                                        <strong>{{ $errors->first('name') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
+	<div class="content">
+	
+		<br>
+		<br>
 
-                        <div class="form-group row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
+		<b class="name">ORGNZD.</b>
+	
+		<br>
+		<br>
+	
+		<h1 class="description">Sign Up!</h1>
+		<h1 class="grey">Make Your Life ORGNZD.</h1>
+	
+		<br>
+		<br>
+		<br>
+		<br>
+	
+		<form method="POST" action="{{ route('register') }}">
 
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required>
+			@csrf
 
-                                @if ($errors->has('email'))
-                                    <span class="invalid-feedback">
-                                        <strong>{{ $errors->first('email') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
+			<label for="name">Name</label>
+			<br>
+   			<input type="text" id="name" name="name" value="{{ old('name') }}" size="30" maxlength="30" required autofocus>
+   			<br>
+   			@if ($errors->has('name'))
+                <span class="invalid-feedback">
+                    <strong>{{ $errors->first('name') }}</strong>
+                </span>
+            @endif
+   			<br>
+   			
+   			<label for="email">Email</label>  
+   			<br>
+   			<input type="email" id="email" name="email" value="{{ old('email') }}" size="30" maxlength="100" required>
+   			<br>
+   			@if ($errors->has('email'))
+                <span class="invalid-feedback">
+                    <strong>{{ $errors->first('email') }}</strong>
+                </span>
+            @endif
+   			<br>
+   
+   			<label for="password">Password</label>
+			<br>
+   			<input type="password" name="password" id="password" size="30" maxlength="100" required>
+   			<br>
+   			@if ($errors->has('password'))
+                <span class="invalid-feedback">
+                    <strong>{{ $errors->first('password') }}</strong>
+                </span>
+            @endif
+   			<br>
 
-                        <div class="form-group row">
-                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
+   			<label for="password-confirm">Confirm Password</label>  
+   			<br>
+   			<input type="password" name="password_confirmation" id="password-confirm" size="30" maxlength="100" required>
+			<br>
 
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" required>
+			<br>
+	
+			<br>
 
-                                @if ($errors->has('password'))
-                                    <span class="invalid-feedback">
-                                        <strong>{{ $errors->first('password') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
+			<input class="button" type="Submit" class="button" name="submit" value="Register">
 
-                        <div class="form-group row">
-                            <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password') }}</label>
+		</form>
 
-                            <div class="col-md-6">
-                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
-                            </div>
-                        </div>
+		<div class="contact">
+	
+			<br>
+			<br>
+			<br>
+			
+	
+			<h4 class="noacc">Already have an account? <a class="signup" href="/login">Sign in.</a></h4>
 
-                        <div class="form-group row mb-0">
-                            <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Register') }}
-                                </button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-@endsection
+		</div>
+
+	</div>
+
+</body>
+
+</html>
