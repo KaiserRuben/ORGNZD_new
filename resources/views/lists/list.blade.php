@@ -17,7 +17,7 @@ Duedate: {{ $project->duedate }}<br>
 <br>
 
 
-<a href="/project/{{ $project->id }}">Back</a> | <a href="">Edit</a> | <a href="/list/{{ $list->id }}/delete/">Delete</a>
+<a href="/project/{{ $project->id }}">Back</a> | <a href="/list/{{ $list->id }}/edit/">Edit</a> | <a href="/list/{{ $list->id }}/delete/">Delete</a>
 <br>
 
 <hr>

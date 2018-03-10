@@ -70,6 +70,51 @@ class ListsController extends Controller
         
     }
 
+    // Edit a List
+
+    public function edit($id){
+
+        $list = DB::table('lists')->where('id', $id)->first();
+
+        $projectid = $list->projectid;
+
+        $project = DB::table('projects')->where('id', $projectid)->first();
+
+        
+        return view('lists.edit', ['list' => $list, 'project' => $project]);
+    }
+
+
+    // Update List
+
+    public function update($id, Request $request)
+    {
+
+        
+
+
+        $name = $request->input('name');
+        $type = $request->input('type');
+        $description = $request->input('description');
+        $value = $request->input('value');
+        $duedate = $request->input('duedate');
+        $log = date('Y-m-d H:i:s');
+
+        DB::table('lists')->where('id', $id)->update(
+        [
+            'name' => $name, 
+            'type' => $type,
+            'description' => $description,
+            'value' => $value,
+            'duedate' => $duedate,
+            'log' => $log,
+        ]
+        );
+
+
+        return redirect('/list/'.$id.'/');
+    } 
+
     // Delete a List
 
     public function delete($id){

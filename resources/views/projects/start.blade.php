@@ -22,13 +22,63 @@
 
   <div class="project-list">
     
+    @php
+
+    $n = 1;
+
+    @endphp
+
     @foreach ($projects as $project)
 
-    <div class="card">
+    @php
+
+    if($n==1){
+      $designid = '';
+    }
+
+    if($n==2){
+      $designid = 'id="yellow-card"';
+    }
+
+    if($n==3){
+      $designid = 'id="blue-card"';
+    }
+
+    if($n==4){
+      $designid = 'id="violet-card"';
+    }
+
+    if($n==5){
+      $designid = 'id="violet-card"';
+    }
+
+    @endphp
+
+    <div class="card" 
+      
+      @php
+
+      echo $designid;
+
+      @endphp
+
+    >
       <h1>{{ $project->name }}</h1>
       <h5 id="task-number">{{ $project->description }}</h5>
       <h5 id="remaining-days">{{ $project->duedate }}</h5>
     </div>
+
+    @php
+
+    $n++;
+
+    if($n==5){
+      $n = 1;
+    }
+
+    $designid = '';
+
+    @endphp
 
     @endforeach
 
