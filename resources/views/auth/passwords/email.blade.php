@@ -2,6 +2,7 @@
 <html>
 <head>
 	<link rel="stylesheet" type="text/css" href="{{ URL::asset('css/resetMail.css') }}">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>ORGNZD. Reset password</title>
 </head>
 <body>
