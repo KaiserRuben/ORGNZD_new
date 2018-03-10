@@ -2,23 +2,24 @@
 <html>
 <head>
     <link rel="stylesheet" type="text/css" href="{{ URL::asset('css/login.css') }}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ORGNZD.</title>
     <meta charset="utf-8">
 </head>
-<body>  
+<body>
     <div class="content">
 
         <br><br>
-        
+
             <b class="name">ORGNZD.</b>
-    
+
     <br>
     <br>
-    
-    
+
+
     <h1 class="description">Welcome back,</h1>
     <h1 class="grey">sign in and start planning.</h1>
-    
+
     <br>
     <br>
 
@@ -38,8 +39,8 @@
 
         <br>
         <br>
-            
-        <label for="password">Password</label>  
+
+        <label for="password">Password</label>
         <br>
         <input id="password" type="password" size="30" name="password" required>
         <br>
@@ -48,13 +49,13 @@
                 <strong>{{ $errors->first('password') }}</strong>
             </span>
         @endif
-    
+
         <br>
         <br>
         <br>
-        
+
         <input type="Submit" class="button" name="submit" value="Login">
-    
+
         <br>
         <br>
         <br>
@@ -63,7 +64,7 @@
 
     <div class="contact">
 
-        
+
         <h4 class="noacc">Don't have an account? <a class="signup" href="/register">Sign up.</a></h4>
         <a class="forgotpassword" href="{{ route('password.request') }}">Forgot password</a>
 
