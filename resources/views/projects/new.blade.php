@@ -35,7 +35,7 @@
 
       <div class="line"></div>
 
-      <textarea name="description" placeholder="What's the plan?" id="desc-input"></textarea>
+      <textarea name="description" placeholder="What's the plan?" id="desc-input" required></textarea>
       <div class="footer">
         <select name="type" id="type-btn">
           <option value="Party">Party</option>
