@@ -1,50 +1,153 @@
-@extends('app.layout')
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>ORGNZD.</title>
+  <!-- ROBOTO -->
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,900" rel="stylesheet">
+  <!-- CSS -->
+  <link rel="stylesheet" href="{{ URL::asset('css/start.css') }}">
+</head>
+<body>
+  <div class="header">
 
-@section('content')
 
-<h1>{{ $project->name }}</h1>
 
-<a href="/">Back</a> | <a href="/project/{{ $project->id }}/edit/">Edit</a> | <a href="/project/{{ $project->id }}/delete/">Delete</a>
 
-<br>
+    <h1>{{ $project->name }}</h1>
+    
+    <div class="project-number-wrapper">
+      <div class="circle">
+        <span>{{ $listscount }}</span>
+      </div>
+    </div>
 
-<br>
+    
+  </div>
 
-<hr>
 
-<br>
+  <div class="project-list">
 
-Type: {{ $project->type }}<br>
-Beschreibung: {{ $project->description }}<br>
-Duedate: {{ $project->duedate }}<br>
+  <div class="card" id="info-card">
+        <h1>{{ $project->description }}</h1>
+        <h5>{{ $project->duedate }}!</h5>
+        <br>
+        <h5><a class="infolink" href="/">Zurück</a> <a class="infolink" href="/project/{{ $project->id }}/edit">Edit Project</a> <a class="infolink" href="/project/{{ $project->id }}/delete">Delete Project</a>
+        </h5>
+        
+   </div>
 
-<br>
+   <div class="card" id="info-card">
+        <h1>Location</h1>
+        
+        </h5>
+        
+   </div>
 
-<hr>
+  @php
 
-<a href="/list/new/{{ $project->id }}/">Neue Liste für dieses Projekt</a>
+    $n = 1;
 
-<br>
+    @endphp
 
-<hr>
+    @foreach ($lists as $list)
 
-<br>
+    @php
 
-@foreach ($lists as $list)
+    if($n==1){
+      $designid = '';
+    }
+
+    if($n==2){
+      $designid = 'id="yellow-card"';
+    }
+
+    if($n==3){
+      $designid = 'id="blue-card"';
+    }
+
+    if($n==4){
+      $designid = 'id="violet-card"';
+    }
+
+    if($n==5){
+      $designid = 'id="violet-card"';
+    }
+
+    @endphp
 
     <a href="/list/{{ $list->id }}">
-    <div class="list">
-        <h3>{{ $list->name }}</h3>
-        <h5>Beschreibung: {{ $list->description }}</h5>
-        <h5>Muss erledigt werden bis: {{ $list->duedate }}</h5>
+      <div class="card" @php echo $designid; @endphp>
+        <h1>{{ $list->name }}</h1>
+        <h5 id="task-number">{{ $list->description }}</h5>
+      </div>
+    </a>
+
+    @php
+
+    $n++;
+
+    if($n==5){
+      $n = 1;
+    }
+
+    $designid = '';
+
+    @endphp
+
+    @endforeach
+
+  
+
+
+
+
+  </div>
+
+  
+
+  <div class="footer">
+    
+    <div class="settings-icon">
+      <svg width="27px" height="27px" viewBox="0 0 27 27" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+          <!-- Generator: Sketch 46.2 (44496) - http://www.bohemiancoding.com/sketch -->
+          <desc>Created with Sketch.</desc>
+          <defs></defs>
+          <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" font-weight="normal" font-family="material" letter-spacing="0.96875" font-size="31">
+              <g id="Project-view" transform="translate(-30.000000, -600.000000)" fill="#D2D2D2">
+                  <text id="settings---material">
+                      <tspan x="28" y="624"></tspan>
+                  </text>
+              </g>
+          </g>
+      </svg>
+    </div>
+    
+
+
+    <div class="add-btn-wrapper">
+      
+      <a href="/list/new/{{ $project->id }}">
+      <div class="add-btn">
+        <svg width="25px" height="24px" viewBox="0 0 25 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+            <!-- Generator: Sketch 46.2 (44496) - http://www.bohemiancoding.com/sketch -->
+            <desc>Created with Sketch.</desc>
+            <defs></defs>
+            <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                <g id="Project-view" transform="translate(-305.000000, -597.000000)" fill="#FFFFFF">
+                    <g id="Group-2" transform="translate(305.000000, 597.000000)">
+                        <rect id="Rectangle-2" transform="translate(12.200000, 12.000000) scale(-1, 1) translate(-12.200000, -12.000000) " x="11.2" y="0" width="2" height="24" rx="1"></rect>
+                        <rect id="Rectangle-2-Copy" transform="translate(12.200000, 12.000000) scale(-1, 1) rotate(90.000000) translate(-12.200000, -12.000000) " x="11.2" y="0" width="2" height="24" rx="1"></rect>
+                    </g>
+                </g>
+            </g>
+        </svg>
+      </div>
+      </a>
 
     </div>
-    </a>
-                
-@endforeach
-
-
-
-
-
-@endsection
+  </div>
+</body>
+</html>
