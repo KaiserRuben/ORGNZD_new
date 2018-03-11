@@ -12,6 +12,7 @@
     <!-- CSS -->
     <link rel="stylesheet" href="{{ URL::asset('css/newproject.css') }}">
     <link rel="stylesheet" href="{{ URL::asset('css/settings.css') }}">
+    <link rel="stylesheet" href="{{ URL::asset('css/all.css') }}">
 </head>
 <body>
   <div class="content">
@@ -21,7 +22,7 @@
 
       <div class="header">
         <h1 id="edit-project-headline">Edit your project</h1>
-        <a href="/project/{{ $project->id }}" id="back-btn">
+        <a href="/project/{{ $project->id }}" class="backbuttonsvglink" id="back-btn">
           ❌
         </a>
       </div>

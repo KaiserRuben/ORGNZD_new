@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="{{ URL::asset('css/newproject.css') }}">
     <link rel="stylesheet" href="{{ URL::asset('css/settings.css') }}">
     <link rel="stylesheet" href="{{ URL::asset('css/usersettings.css') }}">
+    <link rel="stylesheet" href="{{ URL::asset('css/all.css') }}">
 </head>
 <body>
   <div class="content">
@@ -21,7 +22,7 @@
 
       <div class="header">
         <h1 id="edit-project-headline">Account settings</h1>
-        <a href="/" id="back-btn">
+        <a href="/" class="backbuttonsvglink" id="back-btn">
           ❌
         </a>
       </div>

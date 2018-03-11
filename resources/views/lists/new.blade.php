@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="{{ URL::asset('css/newproject.css') }}">
     <link rel="stylesheet" href="{{ URL::asset('css/project.css') }}">
     <link rel="stylesheet" href="{{ URL::asset('css/newlist.css') }}">
+    <link rel="stylesheet" href="{{ URL::asset('css/all.css') }}">
 </head>
 <body>
   <div class="content">
@@ -21,7 +22,7 @@
       <div class="header">
         <input type="name" maxlength="150" name="name" placeholder="Add a list name" required>
         
-        <a href="/project/{{ $projectid }}" id="back-btn">
+        <a href="/project/{{ $projectid }}" class="backbuttonsvglink" id="back-btn">
           ❌
         </a>
       </div>

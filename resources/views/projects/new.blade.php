@@ -10,6 +10,7 @@
     <!-- CSS -->
     <link rel="stylesheet" href="{{ URL::asset('css/reset.css') }}">
     <link rel="stylesheet" href="{{ URL::asset('css/newproject.css') }}">
+    <link rel="stylesheet" href="{{ URL::asset('css/all.css') }}">
 </head>
 <body>
   <div class="content">
@@ -19,7 +20,7 @@
 
       <div class="header">
         <input type="name" maxlength="150" name="name" placeholder="Untitled project" required>
-        <a href="/" id="back-btn">
+        <a href="/" class="backbuttonsvglink" id="back-btn">
           ❌
         </a>
       </div>
