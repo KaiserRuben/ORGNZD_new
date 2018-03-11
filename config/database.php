@@ -42,7 +42,7 @@ return [
             'prefix' => '',
         ],
 
-       /* 'mysql-heroku' => [
+        'mysql-heroku' => [
             'driver'   => 'mysql',
             'host'     => $heroku_db_url['host'],
             'database' => substr($heroku_db_url['path'], 1),
@@ -51,7 +51,7 @@ return [
             'charset'  => 'utf8',
             'prefix'   => '',
             'schema'   => 'public',
-        ], */
+        ], 
 
         'mysql2' => [
             'driver' => 'mysql',
