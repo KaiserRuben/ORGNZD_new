@@ -54,7 +54,7 @@
         <br>
         <br>
 
-        <input type="Submit" class="button" name="submit" value="Login">
+        <input type="Submit" class="button" name="submit" value="Sign In">
 
         <br>
         <br>

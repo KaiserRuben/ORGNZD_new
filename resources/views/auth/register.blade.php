@@ -77,7 +77,7 @@
 
 			<br>
 
-			<input class="button" type="Submit" class="button" name="submit" value="Register">
+			<input class="button" type="Submit" class="button" name="submit" value="Sign Up">
 
 		</form>
 
