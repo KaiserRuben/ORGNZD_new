@@ -30,7 +30,7 @@
   <div class="project-list">
 
   <div class="card" id="info-card">
-        <h1>Hallo USER!</h1>
+        
         <br>
         <h5><a class="infolink" href="/settings/">Einstellungen</a>
         </h5>

@@ -26,7 +26,20 @@ class UserController extends Controller
 		return view('users.settings', ['user' => $user]);
 	}
 
-	public function update(){
+	public function update(Request $request){
+
+		$email = $request->input('email');
+		$name = $request->input('name');
+
+		DB::table('users')->where('id', Auth::id())->update(
+        [
+            'name' => $name,
+            
+            'email' => $email,
+        ]
+        );
+
+        return redirect('/');
 
 	}
 

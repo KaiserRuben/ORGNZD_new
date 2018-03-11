@@ -20,12 +20,12 @@ class ListsController extends Controller
     }
 
     public static function slice($zuZerteilen){
-      $Array = explode("; ", $zuZerteilen)
-      $count = count($Array);
-      for ($i = 0; $i < $count; $i++) {
-        $Array2 = explode(", ", $Array[$i)
-      }
-      return $Array2;
+      $Array = explode(",", $zuZerteilen);
+      //$count = count($Array);
+     /* for ($i = 0; $i < $count; $i++) {
+        $Array2 = explode(", ", $Array[$i]);
+      } */
+      return $Array;
     }
     // Show single Project
 

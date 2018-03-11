@@ -59,6 +59,8 @@ class ProjectController extends Controller
         foreach ($projects as $project) {
             $project->duedate = ProjectController::DateTimeLeft($project->duedate);
         }
+
+        //$username = Auth::user();
         
 
         return view('projects.start', ['projects' => $projects, 'count' => $countallprojects ]);

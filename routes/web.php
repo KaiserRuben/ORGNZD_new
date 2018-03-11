@@ -39,7 +39,7 @@ Auth::routes();
 Route::get('/logout/', 'UserController@logout');
 
 Route::get('/settings/', 'UserController@settings');
-Route::post('/settings/save', 'UserController@save');
+Route::post('/settings/update/', 'UserController@update');
 
 Route::get('/user/warning/', 'UserController@warning');
 Route::get('/user/delete/', 'UserController@delete');

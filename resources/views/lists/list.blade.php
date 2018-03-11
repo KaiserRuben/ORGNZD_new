@@ -36,15 +36,19 @@
         <div class="item">
           <div class="left">
             <div class="indicator"></div>
-            <span> {{ $value[1] }} </span>
+            <span> {{ $value }} </span>
           </div>
           <div class="right">
+           
+            <a href="/list/{{ $list->id }}/value/{{ $value }}/" class="box"></a>
             @php
-              if($value[2] == 1){
-                echo('<a href="/list/{{ $list->id }}/value/{{ $value[2] }}/" class="box" style="color: #FCB8B8;"></a>');
+          /*   if($value[1] == 1){
+               echo('<a href="/list/{{ $list->id }}/value/{{ $value[0] }}/" class="box" style="color: #FCB8B8;">
+            </a>');
               }else{
-                echo('<a href="/list/{{ $list->id }}/value/{{ $value[2] }}/" class="box"></a>');
+                echo('<a href="/list/{{ $list->id }}/value/{{ $value[0] }}/" class="box"></a>');
               }
+              */
 
             @endphp
           </div>
