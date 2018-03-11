@@ -21,16 +21,7 @@
       <div class="header">
         <input type="name" maxlength="150" value="{{ $list->name }}" name="name" placeholder="Change the list name" required>
         <a href="start.php" id="back-btn">
-          <svg width="17px" height="17px" viewBox="0 0 17 17" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-              <defs></defs>
-              <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" font-weight="400" font-family="Ionicons" letter-spacing="0.875" font-size="28">
-                  <g id="Project-creation---2" transform="translate(-324.000000, -48.000000)" fill="#D2D2D2">
-                      <text id="ion-plus-round---Ionicons" transform="translate(333.031223, 57.031223) rotate(45.000000) translate(-333.031223, -57.031223) ">
-                          <tspan x="322.031223" y="67.5312229"></tspan>
-                      </text>
-                  </g>
-              </g>
-          </svg>
+          ❌
         </a>
       </div>
 

@@ -62,7 +62,7 @@ class ListsController extends Controller
 
     // Save new list
 
-    public function save($projectid, Request $request){
+    public function save(Request $request, $projectid){
 
         ProjectController::AllowedForThisProject(Auth::id(), $projectid);
 
