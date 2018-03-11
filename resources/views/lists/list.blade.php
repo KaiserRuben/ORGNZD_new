@@ -30,22 +30,20 @@
             
           </div>
         
-        @php 
-
-
-
-        @endphp
+  @foreach ($notes as $note => $value)
 
 
         <div class="item">
           <div class="left">
             <div class="indicator"></div>
-            <span> VALUE </span>
+            <span> {{ $value }} </span>
           </div>
           <div class="right">
-            <a href="#" class="box"></a>
+            <a href="/list/{{ $list->id }}/value/{{ $value }}/" class="box"></a>
           </div>
         </div>
+
+  @endforeach
 
       </ul>
     </div>

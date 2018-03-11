@@ -35,9 +35,13 @@ class ListsController extends Controller
 
         ProjectController::AllowedForThisProject(Auth::id(), $projectid);
 
+        $notes = ListsController::slice($list->value);
 
 
-        return view('lists.list', ['project' => $project, 'list' => $list]);
+
+
+
+        return view('lists.list', ['project' => $project, 'list' => $list, 'notes' => $notes]);
     }
 
     // Create new list
@@ -144,6 +148,10 @@ class ListsController extends Controller
 
         DB::table('lists')->where('id', $id)->delete();
         return redirect('/project/'.$project);
+    }
+
+    public function setChecked($listid, $value){
+        // Wert eines Stichpunktes von 0 ->1 / 1 -> 0 setzen!
     }
 
 

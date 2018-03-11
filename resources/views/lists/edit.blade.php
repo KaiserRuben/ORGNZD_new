@@ -15,6 +15,9 @@
 <body>
   <div class="content">
     <form action="/list/{{ $list->id }}/update" method="post">
+
+      @csrf
+
       <div class="header">
         <input type="name" maxlength="150" value="{{ $list->name }}" name="name" placeholder="Change the list name" required>
         <a href="start.php" id="back-btn">

@@ -31,6 +31,9 @@ Route::get('/list/{id}/', 'ListsController@list');
 Route::get('/list/{id}/edit', 'ListsController@edit');
 Route::get('/list/{id}/delete', 'ListsController@delete');
 Route::post('/list/{id}/update', 'ListsController@update');
+Route::get('/list/{listid}/value/{$value}/', 'ListsController@setChecked');
+
+
 Auth::routes();
 
 Route::get('/logout/', 'UserController@logout');
