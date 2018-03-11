@@ -13,7 +13,7 @@
   <div class="content">
     <div class="header">
       <!-- BACK BTN -->
-      
+
 
       <!-- PROJECT NAME -->
       <h1>{{ $project->name }}</h1>
@@ -21,25 +21,32 @@
 
     <div class="list-wrapper">
       <h2 class="list-headline">{{ $list->name }}</h2>
-      
+
       <ul>
         <div class="item">
             <a class="infolink" href="/project/{{ $project->id }}/">Zurück</a> <a class="infolink" href="/list/{{ $list->id }}/edit">Edit List</a> <a class="infolink" href="/project/{{ $list->id }}/delete">Delete List</a>
           </div>
           <div class="right">
-            
+
           </div>
-        
+
   @foreach ($notes as $note => $value)
 
 
         <div class="item">
           <div class="left">
             <div class="indicator"></div>
-            <span> {{ $value }} </span>
+            <span> {{ $value[1] }} </span>
           </div>
           <div class="right">
-            <a href="/list/{{ $list->id }}/value/{{ $value }}/" class="box"></a>
+            @php
+              if($value[2] == 1){
+                echo('<a href="/list/{{ $list->id }}/value/{{ $value[2] }}/" class="box" style="color: #FCB8B8;"></a>');
+              }else{
+                echo('<a href="/list/{{ $list->id }}/value/{{ $value[2] }}/" class="box"></a>');
+              }
+
+            @endphp
           </div>
         </div>
 
@@ -48,7 +55,7 @@
       </ul>
     </div>
 
-    
+
 
     <div class="footer">
       <a href="project-settings.php" id="settings-icon">
@@ -64,8 +71,8 @@
                 </g>
             </g>
         </svg>
-      
-      
+
+
     </div>
   </div>
 </body>
