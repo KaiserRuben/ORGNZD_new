@@ -30,7 +30,6 @@
   <div class="project-list">
 
   <div class="card" id="info-card">
-        
         <br>
         <h5><a class="infolink" href="/settings/">Einstellungen</a>
         </h5>

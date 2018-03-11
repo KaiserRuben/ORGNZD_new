@@ -1,2 +1,17 @@
 .footer {
   justify-content: space-between; }
+
+  .infolink{
+  text-decoration: none;
+  font-family: "Roboto";
+  color:grey;
+  border:2px solid grey;
+  border-radius: 3px;
+  padding:2px;
+  margin:2px;
+}
+
+.infolink:hover{
+  color:white;
+  background-color: grey;
+}
