@@ -25,7 +25,7 @@ Route::get('/project/{id}/delete', 'ProjectController@delete');
 Route::post('/project/{id}/update', 'ProjectController@update');
 
 Route::get('/list/new/{projectid}', 'ListsController@new');
-Route::post('/list/save/{projectid}', 'ListsController@save');
+Route::post('/list/save/{projectid}/', 'ListsController@save');
 
 Route::get('/list/{id}/', 'ListsController@list');
 Route::get('/list/{id}/edit', 'ListsController@edit');
