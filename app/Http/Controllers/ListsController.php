@@ -39,9 +39,13 @@ class ListsController extends Controller
 
         ProjectController::AllowedForThisProject(Auth::id(), $projectid);
 
+        $notes = ListsController::slice($list->value);
 
 
-        return view('lists.list', ['project' => $project, 'list' => $list]);
+
+
+
+        return view('lists.list', ['project' => $project, 'list' => $list, 'notes' => $notes]);
     }
 
     // Create new list
@@ -64,10 +68,9 @@ class ListsController extends Controller
 
         $projectid = $projectid;
         $name = $request->input('name');
-        $type = $request->input('type');
-        $description = $request->input('description');
+        
         $value = $request->input('value');
-        $duedate = $request->input('duedate');
+        
         $log = date('Y-m-d H:i:s');
         $created = date('Y-m-d H:i:s');
 
@@ -75,10 +78,9 @@ class ListsController extends Controller
         [
             'projectid' => $projectid,
             'name' => $name,
-            'type' => $type,
-            'description' => $description,
+           
             'value' => $value,
-            'duedate' => $duedate,
+            
             'log' => $log,
             'created' => $created,
         ]
@@ -119,19 +121,17 @@ class ListsController extends Controller
         ProjectController::AllowedForThisProject(Auth::id(), $projectid);
 
         $name = $request->input('name');
-        $type = $request->input('type');
-        $description = $request->input('description');
+        
         $value = $request->input('value');
-        $duedate = $request->input('duedate');
+        
         $log = date('Y-m-d H:i:s');
 
         DB::table('lists')->where('id', $id)->update(
         [
             'name' => $name,
-            'type' => $type,
-            'description' => $description,
+            
             'value' => $value,
-            'duedate' => $duedate,
+            
             'log' => $log,
         ]
         );
@@ -152,6 +152,10 @@ class ListsController extends Controller
 
         DB::table('lists')->where('id', $id)->delete();
         return redirect('/project/'.$project);
+    }
+
+    public function setChecked($listid, $value){
+        // Wert eines Stichpunktes von 0 ->1 / 1 -> 0 setzen!
     }
 
 

@@ -1,4 +1,7 @@
 <?php
+// Use content of DATABASE_URL environment variable or the default for local connection.
+// Normally it won't be used, because the default configuration is to use mysql connection configuration
+$heroku_db_url = parse_url(env('JAWSDB_URL', "mysql://root@localhost:3306/orgnzd"));
 
 return [
 
@@ -12,7 +15,7 @@ return [
     | you may use many connections at once using the Database library.
     |
     */
-
+    // locally use the mysql db configuration and on heroku use the content of DB_CONNECTION Environment Variable
     'default' => env('DB_CONNECTION', 'mysql'),
 
     /*
@@ -38,6 +41,17 @@ return [
             'database' => env('DB_DATABASE', database_path('database.sqlite')),
             'prefix' => '',
         ],
+
+       /* 'mysql-heroku' => [
+            'driver'   => 'mysql',
+            'host'     => $heroku_db_url['host'],
+            'database' => substr($heroku_db_url['path'], 1),
+            'username' => $heroku_db_url['user'],
+            'password' => $heroku_db_url['pass'],
+            'charset'  => 'utf8',
+            'prefix'   => '',
+            'schema'   => 'public',
+        ], */
 
         'mysql2' => [
             'driver' => 'mysql',

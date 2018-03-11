@@ -41,8 +41,8 @@
 
    <div class="card" id="info-card">
         <h1>Location</h1>
+        <h5>{{ $project->location }}</h5>
         
-        </h5>
         
    </div>
 
